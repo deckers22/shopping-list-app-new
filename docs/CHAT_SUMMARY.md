@@ -27,6 +27,8 @@ list, a list of standard groceries to add quickly, and data that survives app up
 - First version implemented; see README for structure and how to get the APK.
 - The cloud dev environment cannot download the Android SDK (dl.google.com blocked),
   so builds are verified by the GitHub Actions workflow `Build APK`, not locally.
+- Pushed to branch `claude/shopping-recipe-android-app-uwvlkp`; CI build + unit tests
+  pass and produce an APK (artifact `shopping-list-apk`). No pull request opened.
 - Not yet tested on a real device.
 
 ## Open
