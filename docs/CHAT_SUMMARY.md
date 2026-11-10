@@ -29,6 +29,8 @@ list, a list of standard groceries to add quickly, and data that survives app up
   so builds are verified by the GitHub Actions workflow `Build APK`, not locally.
 - Pushed to branch `claude/shopping-recipe-android-app-uwvlkp`; CI build + unit tests
   pass and produce an APK (artifact `shopping-list-apk`). No pull request opened.
+- Each CI build publishes the APK as the single rolling release `latest` (Releases page),
+  because the Actions artifact was hard to find.
 - Not yet tested on a real device.
 
 ## Open
@@ -37,5 +39,4 @@ list, a list of standard groceries to add quickly, and data that survives app up
   key"). Until the secrets exist, each CI APK has a throwaway signature.
 
 ## Ideas not built
-- Merge duplicate items, categories/shop order, reorder ingredients, sharing/sync,
-  GitHub Release with APK for easier phone download.
+- Merge duplicate items, categories/shop order, reorder ingredients, sharing/sync.

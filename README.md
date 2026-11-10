@@ -10,8 +10,9 @@ Android app (Kotlin, Jetpack Compose, Room) for a shopping list, recipes and sta
 
 ## Getting the app
 
-Every push builds an APK in GitHub Actions (**Actions → Build APK → latest run →
-Artifacts → `shopping-list-apk`**). Unzip it and open the `.apk` on your phone.
+Every push builds the app and publishes the newest APK on the repository's **Releases**
+page: <https://github.com/deckers22/shopping-list-app-new/releases/latest>. Open that
+page on your phone, tap `shopping-list.apk` and open the downloaded file to install.
 
 Locally: open the project in Android Studio, or run `./gradlew assembleRelease`
 (needs the Android SDK and JDK 17).

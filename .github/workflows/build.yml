@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -33,3 +35,15 @@ jobs:
         with:
           name: shopping-list-apk
           path: app/build/outputs/apk/release/*.apk
+      # Keeps one release, always holding the newest APK, at a fixed address:
+      # https://github.com/<owner>/<repo>/releases/latest
+      - name: Publish APK on the Releases page
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp app/build/outputs/apk/release/app-release.apk shopping-list.apk
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest shopping-list.apk \
+            --target "$GITHUB_SHA" \
+            --title "Shopping List 1.0.$GITHUB_RUN_NUMBER" \
+            --notes "Newest build of the app. Download shopping-list.apk on your phone and open it to install."
